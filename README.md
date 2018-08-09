@@ -4,11 +4,10 @@
 
 <div width="100%">
   <h2>Template<h2>
-  <a href="https://i.imgur.com/QZgpdZT.png"><img src="https://i.imgur.com/QZgpdZT.png" align="left" width="600px"></a>
+  <a href="https://i.imgur.com/QZgpdZT.png"><img src="https://i.imgur.com/QZgpdZT.png" align="center" width="600px"></a>
   &nbsp;
   <br>
-  &nbsp;
-  <a href="https://i.imgur.com/Mis4bdn.png"><img src="https://i.imgur.com/Mis4bdn.png" align="left" width="600px"></a>
+  <a href="https://i.imgur.com/Mis4bdn.png"><img src="https://i.imgur.com/Mis4bdn.png" align="center" width="600px"></a>
 </div>
 
 <div>
