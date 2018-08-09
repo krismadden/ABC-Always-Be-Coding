@@ -2,7 +2,7 @@
   <h1>ABC-Always-Be-Coding</h1>
 </div>
 
-<div>
+<div width="100%">
   <h2>Template<h2>
   <a href="https://i.imgur.com/QZgpdZT.png"><img src="https://i.imgur.com/QZgpdZT.png" align="left" width="600px"></a>
   &nbsp;
