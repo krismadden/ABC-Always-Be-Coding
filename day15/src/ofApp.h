@@ -1,0 +1,48 @@
+#pragma once
+
+#include "ofMain.h"
+#include "ofxDatGui.h"
+
+class ofApp : public ofBaseApp{
+
+	public:
+		void setup();
+		void update();
+		void draw();
+
+		void keyPressed(int key);
+		void keyReleased(int key);
+		void mouseMoved(int x, int y );
+		void mouseDragged(int x, int y, int button);
+		void mousePressed(int x, int y, int button);
+		void mouseReleased(int x, int y, int button);
+		void mouseEntered(int x, int y);
+		void mouseExited(int x, int y);
+		void windowResized(int w, int h);
+		void dragEvent(ofDragInfo dragInfo);
+		void gotMessage(ofMessage msg);
+    
+        // graphics
+        ofTrueTypeFont font;
+    
+        // gui
+    
+        ofxDatGui* gui;
+        bool show_gui;
+        ofParameter <float> GUI_red;
+        ofParameter <float> GUI_green;
+        ofParameter <float> GUI_blue;
+        ofParameter <int> GUI_circle_resolution;
+        ofParameter <int> GUI_num_circles;
+        ofParameter <int> GUI_circle_size;
+    
+        // events
+        void onSliderEvent(ofxDatGuiSliderEvent e);
+        void onColorPickerEvent(ofxDatGuiColorPickerEvent e);
+        void onButtonEvent(ofxDatGuiButtonEvent e);
+    
+        //other
+        void randomize();
+        ofColor circle;
+        int circleRandoms[100][3];
+};
