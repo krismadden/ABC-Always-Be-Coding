@@ -1,0 +1,120 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+
+<style type="text/css">body{ margin: 0;}</style>
+
+<script>
+
+
+
+
+
+
+
+var coloRs = ['#3152e5', '#313131',  "#000000", "#45e305"];
+var Background = '#ffffff';
+
+var screenWidth = 20; //in units. the actual width is screenWidth * spacing
+var screenHeight = 14;
+
+var screenadjustment = 1;
+var blockadjustment = 1.25;
+
+var spacing = 40*screenadjustment*blockadjustment;
+
+var tRIangles = [ [0,0,0,spacing,spacing,spacing],
+                  [spacing,spacing,0,spacing,spacing,0], 
+                  [0,0, spacing, spacing, spacing, 0],
+                  [0,0,0,spacing,spacing,0]];
+
+var tRIAngles = [];
+
+var timeR = 0;
+var timeRange = 60;
+
+var timeR2 = 0;
+var timeRange2 = 2;
+
+var saving = false;
+
+
+function setup() {
+  createCanvas(screenWidth*spacing*screenadjustment, screenHeight*spacing*screenadjustment);
+  console.log(window.innerWidth, window.innerHeight);
+
+  for (var x = 0; x < height; x+=spacing) {
+    for (var  i= 0; i < width; i+=spacing) {
+      var Random = int(random(tRIangles.length));
+      noStroke();
+      fill(coloRs[int(random(coloRs.length))]);
+      if(Random < tRIangles.length){
+        triangle(i + tRIangles[Random][0], x + tRIangles[Random][1], i + tRIangles[Random][2], x + tRIangles[Random][3], i + tRIangles[Random][4], x + tRIangles[Random][5]);
+        tRIAngles[i+x] = tRIangles[Random];
+      };
+    }
+  }
+}
+
+function draw() {
+  timeR = timeR + 1;
+  if(timeR >= timeRange){
+    tRiangles();
+    timeR = 0;
+  }
+}
+
+function tRiangles(){
+  background(Background);
+
+  for (var x = 0; x < height; x+=spacing) {
+    for (var  i= 0; i < width; i+=spacing) {
+      fill('#3152e5');
+      triangle(i + tRIAngles[i+x][0], x + tRIAngles[i+x][1], i + tRIAngles[i+x][2], x + tRIAngles[i+x][3], i + tRIAngles[i+x][4], x + tRIAngles[i+x][5]);
+    }
+
+    if(!saving){
+    fill(0);
+    textSize(40);
+    text('press r to change the pattern', 50, 80);
+    text('press s to save the image', 50, 120);
+  }
+  }
+  
+  if(saving){
+    saveFrames('portfolio_', 'jpg', 1, 1);
+    timeR2 = timeR2 + 1;
+    if(timeR2 >= timeRange2){
+      saving = false;
+      timeR2 = 0;
+    }
+  }
+ }
+
+function keyPressed() {
+  if (key == "s"){
+   if(saving){
+    saving = false;
+   }else{
+    saving = true;
+   }
+  }
+  if (key == "r"){
+    background(Background);
+    for (var x = 0; x < height; x+=spacing) {
+      for (var  i= 0; i < width; i+=spacing) {
+        var Random = int(random(tRIangles.length));
+        noStroke();
+        if(Random < tRIangles.length){
+          triangle(i + tRIangles[Random][0], x + tRIangles[Random][1], i + tRIangles[Random][2], x + tRIangles[Random][3], i + tRIangles[Random][4], x + tRIangles[Random][5]);
+          tRIAngles[i+x] = tRIangles[Random];
+        };
+      }
+    }
+  }
+}
+
+// function mousePressed(){
+//   saveFrames('mouse_', 'png');
+// }
+
+
+</script>
