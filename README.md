@@ -30,6 +30,8 @@
 <div>
   <h2>2018 / 07 / 20 - flying eyeballs</h2>
   <a href="https://i.imgur.com/8IlLKVq.mp4" target="_blank">video link</a>
+  <br>
+  <a href="https://imgur.com/a/MPttM2a"><img src="https://imgur.com/a/MPttM2a" align="center" width="350px"></a>
 </div>
 
 <div width="100%">
