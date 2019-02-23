@@ -1,5 +1,6 @@
 <div>
   <h1>ABC-Always-Be-Coding</h1>
+  <p>here are just some examples of what can be found in this repository.</p>
 </div>
 
 <br>
@@ -28,7 +29,7 @@
 
 <div>
   <h2>2018 / 07 / 20 - flying eyeballs</h2>
-  <a href="https://i.imgur.com/8IlLKVq.mp4">video link</a>
+  <a href="https://i.imgur.com/8IlLKVq.mp4" target="_blank">video link</a>
 </div>
 
 <div width="100%">
