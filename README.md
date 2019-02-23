@@ -7,6 +7,13 @@
 
 
 <div>
+  <h2> 2019/02/23 - Geometric Code Errors Tshirt</h2>
+   <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019:02:23/tshirt02.jpeg?raw=true" width="350" alt="feb 23 2019 image of sketch">
+   <br>
+   <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019:02:23/pattern02.jpg?raw=true" width="350" alt="feb 23 2019 image of sketch">
+</div>
+
+<div>
 	<h2> 2019/02/22 - Geometric Code Errors</h2>
 	<img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019:02:22/pattern01.jpg?raw=true" width="350" alt="feb 22 2019 image of sketch">
 </div>
