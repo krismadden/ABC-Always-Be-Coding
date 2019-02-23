@@ -25,5 +25,5 @@
    <br>
    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/Code%20Calendar/calendar11.jpg?raw=true" width="350" alt="november" >
    <br>
-   <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/Code%20Calendar/calendar12.jpg?raw=true" width="350" alt="november" >
+   <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/Code%20Calendar/calendar12.jpg?raw=true" width="350" alt="december" >
 </p>
