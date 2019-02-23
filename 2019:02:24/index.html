@@ -9,11 +9,14 @@ let bubbles = [];
 let coloRs = ['#66D5E2',  "#C5506C", "#E97E84", "#E9CDC6", "#E3446E", "#6F4768", "#77A4C3"];
 let backgRound = "#D3E6E5";
 
-let widtHs = [1, 2, 5, 10, 12];
+let widtHs = [1, 1, 2, 5, 10, 12];
 
 var saving = false;
 
 let repeats = 100;
+
+var timeR = 0;
+var timeRange = 60;
 
 // var bubble = {
 // 	x: 300,
@@ -38,11 +41,21 @@ function draw(){
     saveFrames('bubbles_', 'jpg', 1, 1);
     saving = false;
   }
+
+	timeR = timeR + 1;
+	if(timeR >= timeRange){
+		for (let i = 0; i<repeats; i++){
+			bubbles[i].random = random(-15, 15);
+			bubbles[i].random2 = random(-15, 15);
+		}
+    	timeR = 0;
+  	}
 }
 
 class Bubble {
 	constructor(x, y, r){
 		this.random = random(-15, 15);
+		this.random2 = random(-15, 15);
 		this.x = x ;
 		this.xSquare = x + this.random;
 		this.y = y;
@@ -58,9 +71,14 @@ class Bubble {
 	}
 
 	showCircle(){
-		stroke(this.coloR);
-		strokeWeight(this.widtH);
-		noFill();
+		if(int(this.random2) % 2 == 0){
+			stroke(this.coloR);
+			strokeWeight(this.widtH);
+			noFill();
+		}else{
+			noStroke();
+			fill(this.coloR);
+		}
 		ellipse(this.x, this.y, this.r);
 	}
 
