@@ -1,0 +1,92 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+
+<style type="text/css">body{ margin: 0;}</style>
+
+<script>
+
+let bubbles = [];
+
+let coloRs = ['#66D5E2',  "#C5506C", "#E97E84", "#E9CDC6", "#E3446E", "#6F4768", "#77A4C3"];
+let backgRound = "#D3E6E5";
+
+let widtHs = [1, 2, 5, 10, 12];
+
+var saving = false;
+
+let repeats = 100;
+
+// var bubble = {
+// 	x: 300,
+// 	y: 200,
+// }
+
+function setup(){
+	createCanvas(windowWidth, windowHeight);
+	for (let i = 0; i<repeats; i++){
+		bubbles[i] = new Bubble(random(20, windowWidth), random(20, windowHeight), random(10, 60));
+	}
+}
+
+function draw(){
+	background(backgRound);
+	for (let i = 0; i<repeats; i++){
+		// bubbles[i].move();
+		bubbles[i].showCircle();
+		bubbles[i].showSquare();
+	}
+	if(saving){
+    saveFrames('bubbles_', 'jpg', 1, 1);
+    saving = false;
+  }
+}
+
+class Bubble {
+	constructor(x, y, r){
+		this.random = random(-15, 15);
+		this.x = x ;
+		this.xSquare = x + this.random;
+		this.y = y;
+		this.ySquare = y + this.random;
+		this.r = r;
+		this.coloR = coloRs[int(random(0, coloRs.length))];
+		this.widtH = widtHs[int(random(0, widtHs.length))];
+	}
+
+	move(){
+		this.x = this.x + random(-2, 2);
+		this.y = this.y + random(-2, 2);
+	}
+
+	showCircle(){
+		stroke(this.coloR);
+		strokeWeight(this.widtH);
+		noFill();
+		ellipse(this.x, this.y, this.r);
+	}
+
+	showSquare(){
+		if(int(this.random) % 2 == 0){
+			stroke(this.coloR);
+			strokeWeight(this.widtH);
+			noFill();
+		}else{
+			noStroke();
+			fill(this.coloR);
+		}
+		rect(this.xSquare, this.ySquare, this.r, this.r);
+	}
+}
+
+
+
+function keyPressed() {
+	if (key == "s"){
+		if(saving){
+			saving = false;
+		}else{
+			saving = true;
+		}
+  	}
+}
+
+</script>
