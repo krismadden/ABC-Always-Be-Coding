@@ -1,0 +1,73 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+
+<style type="text/css">body{ margin: 0;}</style>
+
+<script>
+
+
+var coloRs = [ '#10766B', '#FD9F21', '#E5820E', "#1ab6cc", "#FB6606", "#B9E366", "#17aa67"];
+var Background = coloRs[0];
+
+var screenadjustment = 4;
+var blockadjustment = 1.25;
+
+var spacing = 60*screenadjustment*blockadjustment;
+
+var tRIangles = [ [spacing,spacing,0,spacing,spacing,0], [0,0,0,spacing,spacing,0], [0,spacing,spacing,0,0,0], [0,spacing,spacing,spacing,0,0]];
+
+var timeR = 0;
+var timeRange = 60;
+
+var saving = false;
+
+
+function setup() {
+  createCanvas(1400*screenadjustment, 1060*screenadjustment);
+  console.log(window.innerWidth, window.innerHeight);
+}
+
+function draw() {
+  timeR = timeR + 1;
+  if(timeR >= timeRange){
+    tRiangles();
+    timeR = 0;
+  }
+}
+
+function tRiangles(){
+  background(Background);
+  
+  for (var x = 0; x < height; x+=spacing) {
+    for (var  i= 0; i < width; i+=spacing) {
+      var Random = int(random(6));
+      noStroke();
+      fill(coloRs[int(random(coloRs.length))]);
+      if(Random == 0 || Random == 1 || Random == 2 || Random == 3){
+        triangle(i + tRIangles[Random][0], x + tRIangles[Random][1], i + tRIangles[Random][2], x + tRIangles[Random][3], i + tRIangles[Random][4], x + tRIangles[Random][5]);
+      };
+      if(Random == (4) || Random == (5)){
+        rect(i, x, spacing, spacing);
+      };
+    }
+  }
+  if(saving){
+    saveFrames('dontknow_', 'jpg', 1, 1);
+  }
+ }
+
+function keyPressed() {
+  if (key = "s"){
+   if(saving){
+    saving = false;
+   }else{
+    saving = true;
+   }
+  }
+}
+
+// function mousePressed(){
+//   saveFrames('mouse_', 'png');
+// }
+
+
+</script>

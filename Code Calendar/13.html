@@ -1,0 +1,83 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+
+<style type="text/css">body{ margin: 0;}</style>
+
+<script>
+
+
+
+
+
+var coloRs = [ '#fd680b', '#3680d3',  "#d8dab8", "d84022"];
+var Background = "#043a7f";
+
+var screenadjustment = 1;
+var blockadjustment = 1;
+
+var spacing = 60*screenadjustment*blockadjustment;
+
+var tRIangles = [ [0,spacing,spacing,spacing,0,0], 
+                  [spacing,spacing,0,spacing,spacing,0], 
+                  [0,0,0,spacing,spacing,0],
+                  [0,0,spacing,spacing,spacing,0],
+                  [0,spacing,spacing,spacing,0,0], 
+                  [spacing,spacing,0,spacing,spacing,0], 
+                  [0,0,0,spacing,spacing,0],
+                  [0,0,spacing,spacing,spacing,0]];
+
+var timeR = 0;
+var timeRange = 60;
+
+var saving = false;
+
+
+function setup() {
+  createCanvas(1400*screenadjustment, 1060*screenadjustment);
+  console.log(window.innerWidth, window.innerHeight);
+}
+
+function draw() {
+  timeR = timeR + 1;
+  if(timeR >= timeRange){
+    tRiangles();
+    timeR = 0;
+  }
+}
+
+function tRiangles(){
+  background(Background);
+  
+  for (var x = 0; x < height; x+=spacing) {
+    for (var  i= 0; i < width; i+=spacing) {
+      var Random = int(random(9));
+      noStroke();
+      fill(coloRs[int(random(coloRs.length))]);
+      if(Random < tRIangles.length){
+        triangle(i + tRIangles[Random][0], x + tRIangles[Random][1], i + tRIangles[Random][2], x + tRIangles[Random][3], i + tRIangles[Random][4], x + tRIangles[Random][5]);
+      };
+      if(Random == (6)){
+        rect(i, x, spacing, spacing);
+      };
+    }
+  }
+  if(saving){
+    saveFrames('april_', 'jpg', 1, 1);
+  }
+ }
+
+function keyPressed() {
+  if (key = "s"){
+   if(saving){
+    saving = false;
+   }else{
+    saving = true;
+   }
+  }
+}
+
+// function mousePressed(){
+//   saveFrames('mouse_', 'png');
+// }
+
+
+</script>
