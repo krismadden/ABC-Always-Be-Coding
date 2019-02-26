@@ -1,0 +1,172 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+
+<style type="text/css">body{ margin: 0;}</style>
+
+<script>
+
+let blocks = [];
+
+let coloRs = ['#CDE7E5',  "#66D5E2", "#6797C0", "#EE9096", "#6F4768"];
+let backgRound = "#ffffff";
+
+let widtHs = [1, 1, 2, 5, 10, 12];
+
+var saving = false;
+
+let repeats = 50;
+
+var timeR = 0;
+var timeRange = 60;
+
+let blockW = 70;
+let blockH = blockW;
+
+let count = 0;
+
+let rando = 100;
+var timeR = 0;
+var timeRange = 600;
+// var bubble = {
+// 	x: 300,
+// 	y: 200,
+// }
+
+function setup(){
+	createCanvas(windowWidth, windowHeight);
+	for (var x = 0; x < windowWidth; x+=blockW) {
+    	for (var  y= 0; y < windowHeight; y+=blockH) {
+			blocks[count] = new Block(x,y);
+			count++;
+		}
+	}
+}
+
+function draw(){
+	background(backgRound);
+	for (let i = 0; i < blocks.length; i++){
+		
+		timeR = timeR + 1;
+		if(timeR >= timeRange){
+			rando = int(random(0,100));
+			timeR = 0;
+  		}
+		print(rando);
+		print(rando%4);
+		if(rando%4 == 0){
+			blocks[i].showK();
+		}
+		if(rando%4 == 1){
+			blocks[i].showR();
+		}
+		if(rando%4 == 2){
+			blocks[i].showI();
+		}
+		if(rando%4 == 3){
+			blocks[i].showS();
+		}
+	}
+	if(saving){
+    saveFrames('k_block_', 'jpg', 1, 1);
+    // saving = false;
+  }
+
+	timeR = timeR + 1;
+	if(timeR >= timeRange){
+		for (let i = 0; i < blocks.length; i++){
+
+		}
+    	timeR = 0;
+  	}
+}
+
+class Block {
+	constructor(x, y){
+		this.w = blockW;
+		this.h = blockH;
+		this.x = x;
+		this.y = y;
+		this.coloR = coloRs[int(random(0, coloRs.length))];
+	}
+
+	showK(){
+		fill(this.coloR);
+		noStroke();
+		rect(this.x, this.y, this.w, this.h);
+		fill(backgRound);
+		triangle(
+			this.x + (blockW/2 - blockW * .05), 
+			this.y, 
+			this.x + (blockW/2 + blockW * .05), 
+			this.y, 
+			this.x + (blockW/2 - blockW * .05), 
+			this.y + blockH * .1);
+		
+		triangle(
+			this.x + (blockW/2 - blockW * .05), 
+			this.y + blockH, 
+			this.x + (blockW/2 + blockW * .05), 
+			this.y + blockH, 
+			this.x + (blockW/2 - blockW * .05), 
+			this.y + blockH * .9);
+
+		triangle(
+			this.x + blockW, 
+			this.y + (blockH/2 - blockH * .1), 
+			this.x + blockW, 
+			this.y + (blockH/2 + blockH * .1), 
+			this.x + (blockW - blockW * .1), 
+			this.y + blockH/2);
+	}
+
+	showR(){
+		fill(this.coloR);
+		noStroke();
+		rect(this.x, this.y, this.w, this.h);
+		fill(backgRound);
+		rect(this.x + (blockW/2 + blockW * .2), this.y + (blockH/2 - blockH * .1), blockW - blockW * .40, blockH - blockH * .40);
+	}
+
+	showI(){
+		fill(this.coloR);
+		noStroke();
+		rect(this.x, this.y, this.w, this.h);
+		fill(backgRound);
+		rect(this.x, this.y + (blockH/2 - blockH * .1), blockW, blockH * .05);
+	}
+
+	showS(){
+		fill(this.coloR);
+		noStroke();
+		rect(this.x, this.y, this.w, this.h);
+		fill(backgRound);
+		rect(this.x + (blockW/2 - blockW * .1), this.y + (blockH/2 - blockH * .1), blockW/2 + blockW * .1, blockH * .05);
+
+		rect(this.x, this.y + (blockH/2 + blockH * .1), blockW/2 + blockW * .1, blockH * .05);
+	}
+}
+
+
+function trianglE(x, y, size){
+	triangle(x, y, x + size, y, x, y + size);
+}
+function trianglE2(x, y, size){
+	triangle(x, y, x - size, y, x, y - size);
+}
+function trianglE3(x, y, size){
+	triangle(x, y, x + size, y, x, y - size);
+}
+function trianglE4(x, y, size){
+	triangle(x, y, x - size, y, x, y + size);
+}
+
+function keyPressed() {
+	if (key == "s"){
+		if(saving){
+			saving = false;
+		}else{
+			saving = true;
+		}
+  	}
+}
+
+</script>
