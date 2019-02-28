@@ -7,8 +7,9 @@
 
 <div>
   <h2> 2019/02/28 - Circles and Triangles.</h2>
-  <div width="450" height="350" overflow="hidden"><img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019:02:28/pattern01.JPG?raw=true" width="450" alt="feb 28 2019 image of sketch"></div>
+  <div class="hideOverflow" width="450" height="350"><img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019:02:28/pattern01.JPG?raw=true" width="450" alt="feb 28 2019 image of sketch"></div>
   <br><img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019:02:28/pattern02.gif?raw=true" width="450" alt="feb 28 2019 image of sketch">
+  <style>.hideOverflow{overflow:hidden;}</style>
 </div>
 
 <div>
