@@ -7,12 +7,7 @@
 
 <div>
   <h2> 2019/02/28 - Circles and Triangles.</h2>
-  <div 
-    style="background-image: url('https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019:02:28/pattern01.JPG?raw=true'); 
-    width:450px; 
-    height:350px; 
-    background-position:center;">&nbsp;</div>
-  <br><img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019:02:28/pattern02.gif?raw=true" width="450" alt="feb 28 2019 image of sketch">
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019:02:28/pattern01.JPG?raw=true" height="450"  alt="feb 28 2019 image of sketch"> <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019:02:28/pattern02.gif?raw=true" height="450" alt="feb 28 2019 image of sketch">
 </div>
 
 <div>
