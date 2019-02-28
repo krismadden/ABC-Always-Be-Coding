@@ -6,6 +6,11 @@
 <br>
 
 <div>
+  <h2> 2019/02/28 - Circles and Triangles.</h2>
+  <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019:02:28/pattern01.JPG?raw=true" width="450" alt="feb 28 2019 image of sketch">         <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019:02:28/pattern02.gif?raw=true" width="450" alt="feb 28 2019 image of sketch">
+</div>
+
+<div>
   <h2> 2019/02/26 - Kris // That's my name, don't wear it out.</h2>
    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019:02:26/pattern01.jpg?raw=true" width="350" alt="feb 26 2019 image of sketch">
    <br>

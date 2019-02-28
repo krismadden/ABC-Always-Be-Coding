@@ -1,0 +1,237 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+
+<style type="text/css">body{ margin: 0;}</style>
+
+<script>
+
+let bubbles = [];
+
+let coloRs = ['#66D5E2',  "#C5506C", "#D3E6E5", "#E9CDC6", "#E3446E", "#6F4768", "#77A4C3"];
+let backgRound = "#E97E84";
+
+let widtHs = [1, 1, 2, 5, 10, 12];
+
+var saving = false;
+
+let repeats = 50;
+
+var timeR = 0;
+var timeRange = 60;
+
+
+let col = 10;
+let row = 10;
+let cell = 90;
+
+let grow = 0;
+let growLimit = 20;
+let growing = true;
+let change = 0.1;
+
+
+let grow2 = 5;
+let growLimit2 = 30;
+let growing2 = false;
+let change2 = 0.2;
+
+let grow3 = -10;
+let growLimit3 = 10;
+let growing3 = true;
+let change3 = 0.08;
+
+function setup(){
+	createCanvas(windowWidth, windowHeight);
+	col = windowWidth/cell;
+	row = windowHeight/cell;
+	for (let i = 0; i < col; i++) {
+		bubbles[i] = [];
+	    for (let j = 0; j < row; j++) {
+	      	let x = .5*cell + i*cell;
+			let y = .5*cell + j*cell;
+			let r = random(20, 60);
+	      	bubbles[i][j] = new Bubble(x,y,r);
+	    }
+	  }
+}
+
+function draw(){
+	background(backgRound);
+	for (let i = 0; i < col; i++) {     
+    	for (let j = 0; j < row; j++) {
+			bubbles[i][j].showCircle(grow);
+			bubbles[i][j].showSquare(grow2);
+			bubbles[i][j].showTriangle(grow3);
+		}
+	}
+	if(grow>= growLimit){
+		growing = false;
+	}
+	if(grow <= growLimit * -1){
+		growing = true;
+	}
+	if(growing){
+		grow+= change ;
+	}else{
+		grow-= change;
+	}
+
+	if(grow2>= growLimit2){
+		growing2 = false;
+	}
+	if(grow2 <= growLimit2 * -1){
+		growing2 = true;
+	}
+	if(growing2){
+		grow2+= change2 ;
+	}else{
+		grow2-= change2;
+	}
+
+	if(grow3>= growLimit3){
+		growing3 = false;
+	}
+	if(grow3 <= growLimit3 * -1){
+		growing3 = true;
+	}
+	if(growing3){
+		grow3+= change3 ;
+	}else{
+		grow3-= change3;
+	}
+
+	// timeR = timeR + 1;
+	// if(timeR >= timeRange){
+	// 	for (let i = 0; i < col; i++) {     
+	//     	for (let j = 0; j < row; j++) {
+	// 			bubbles[i][j].random = random(-15, 15);
+	// 			bubbles[i][j].random2 = random(-15, 15);
+	// 			bubbles[i][j].random3 = random(-15, 15);
+	// 			bubbles[i][j].random4 = random(-15, 15);
+	// 			bubbles[i][j].random5 = random(-15, 15);
+	// 		}
+	// 	}
+ //    	timeR = 0;
+ //  	}
+}
+
+class Bubble {
+	constructor(x, y, r){
+		this.random = random(-15, 15);
+		this.random2 = random(-15, 15);
+		this.random3 = random(-15, 15);
+		this.random4 = random(-15, 15);
+		this.random5 = random(-15, 15);
+		this.x = x ;
+		this.xSquare = x + this.random;
+		this.xTriangle = x + this.random3;
+		this.xTriangle3 = x + this.random4;
+		this.xTriangle4 = x + this.random5;
+		this.y = y;
+		this.ySquare = y + this.random;
+		this.yTriangle = y + this.random3;
+		this.yTriangle3 = y + this.random4;
+		this.yTriangle4 = y + this.random5;
+		this.r = r;
+		this.coloR = coloRs[int(random(0, coloRs.length))];
+		this.widtH = widtHs[int(random(0, widtHs.length))];
+	}
+
+	move(){
+		this.x = this.x + random(-2, 2);
+		this.y = this.y + random(-2, 2);
+	}
+
+	showCircle(grow){
+		if(int(this.random2) % 2 == 0){
+			stroke(this.coloR);
+			strokeWeight(this.widtH);
+			noFill();
+		}else{
+			noStroke();
+			fill(this.coloR);
+		}
+		ellipse(this.x, this.y, this.r + grow);
+	}
+
+	showSquare(grow){
+		if(int(this.random) % 2 == 0){
+			stroke(this.coloR);
+			strokeWeight(this.widtH);
+			noFill();
+		}else{
+			noStroke();
+			fill(this.coloR);
+		}
+		// rect(this.xSquare, this.ySquare, this.r, this.r);
+		trianglE2(this.xSquare, this.ySquare, this.r + grow);
+	}
+
+	showTriangle(grow){
+		if(int(this.random3) % 2 == 0){
+			stroke(this.coloR);
+			strokeWeight(this.widtH);
+			noFill();
+		}else{
+			noStroke();
+			fill(this.coloR);
+		}
+		// rect(this.xSquare, this.ySquare, this.r, this.r);
+		trianglE(this.xTriangle, this.yTriangle, this.r + grow);
+	}
+
+	showTriangle3(){
+		if(int(this.random3) % 2 == 0){
+			stroke(this.coloR);
+			strokeWeight(this.widtH);
+			noFill();
+		}else{
+			noStroke();
+			fill(this.coloR);
+		}
+		// rect(this.xSquare, this.ySquare, this.r, this.r);
+		trianglE3(this.xTriangle3, this.yTriangle3, this.r);
+	}
+
+	showTriangle4(){
+		if(int(this.random3) % 2 == 0){
+			stroke(this.coloR);
+			strokeWeight(this.widtH);
+			noFill();
+		}else{
+			noStroke();
+			fill(this.coloR);
+		}
+		// rect(this.xSquare, this.ySquare, this.r, this.r);
+		trianglE4(this.xTriangle4, this.yTriangle4, this.r);
+	}
+}
+
+
+function trianglE(x, y, size){
+	triangle(x, y, x + size, y, x, y + size);
+}
+function trianglE2(x, y, size){
+	triangle(x, y, x - size, y, x, y - size);
+}
+function trianglE3(x, y, size){
+	triangle(x, y, x + size, y, x, y - size);
+}
+function trianglE4(x, y, size){
+	triangle(x, y, x - size, y, x, y + size);
+}
+
+function keyPressed() {
+	if (key == "s"){
+		if(saving){
+			saving = false;
+		}else{
+			saving = true;
+		}
+  	}
+  	if(saving){
+	    saveFrames('bibbbble', 'jpg', 1, 1);
+	    saving = false;
+	  }
+}
+
+</script>
