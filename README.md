@@ -7,7 +7,7 @@
 
 <div>
   <h2> 2019/03/05 - Beautiful Error Wheel.</h2>
-    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:03/2019:03:05/pattern01.jpg?raw=true" height="450"  alt="feb 28 2019 image of sketch"> <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:03/2019:03:05/pattern02.jpg?raw=true" height="450" alt="feb 28 2019 image of sketch">
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:03/2019:03:05/pattern01.jpg?raw=true" width="350"  alt="feb 28 2019 image of sketch"> <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:03/2019:03:05/pattern02.jpg?raw=true" width="350" alt="feb 28 2019 image of sketch">
 </div>
 
 <div>
@@ -31,9 +31,9 @@
 
 <div>
   <h2> 2019/02/23 - Geometric Code Errors Tshirt</h2>
-   <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/2019/2019:02/master/2019:02:23/tshirt02.jpeg?raw=true" width="350" alt="feb 23 2019 image of sketch">
+   <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:02/2019:02:23/tshirt02.jpeg?raw=true" width="350" alt="feb 23 2019 image of sketch">
    <br>
-   <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/2019/2019:02/master/2019:02:23/pattern02.jpg?raw=true" width="350" alt="feb 23 2019 image of sketch">
+   <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:02/2019:02:23/pattern02.jpg?raw=true" width="350" alt="feb 23 2019 image of sketch">
 </div>
 
 <div>
