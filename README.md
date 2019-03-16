@@ -5,6 +5,12 @@
 
 <br>
 
+<div>
+  <h2> 2019/03/16 - Animating Vasarely 1.</h2>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:03/2019:03:16/pattern05.gif?raw=true" width="350" alt="march 16 2019 image of sketch">
+    <br>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:03/2019:03:16/pattern04.gif?raw=true" width="350" alt="March 16 2019 image of sketch">
+</div>
 
   <div>
   <h2> 2019/03/14 - Rotating grid of shapes.</h2>
