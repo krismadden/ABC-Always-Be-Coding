@@ -1,0 +1,125 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+
+<style type="text/css">body{ margin: 0;}</style>
+
+<script>
+
+
+
+var cols, rows;
+var w = 50;
+//let w;
+var grid = [];
+let coloR1;
+let coloR2;
+let coloRs = ["#3a3d47", "#525964", "#a8bfc2", "#f0edcd", "#e7e27e"];
+let coloRs2 = ["#31343e", "#4c5564", "#7c9ea2", "#d3cfaa", "#e0da68"];
+let speed;
+let shaPe;
+let margin_left;
+let margin_top;
+
+var saving = false;
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  //w = windowWidth/8;
+
+// load the col / row vars with values that dynamically read from the canvas.
+  cols = ceil(width/w) - 4;
+  margin_left = (windowWidth - cols*50) / 2;
+  rows = floor(height/w) - 4;
+  margin_top = (windowHeight - rows*50) / 2;
+
+// load the the array with generic row and column values
+    for (var j = 0; j < rows; j++){
+      for (var i = 0; i < cols; i++){
+      coloR1 = coloRs[int(random(0,coloRs.length))];
+      coloR2 = coloRs2[int(random(0,coloRs.length))];
+      speed = random(-10, 10);
+      shaPe = int(random(0,2));
+
+        // And for each, create an object instance based on the Shape class.
+        var shape = new Shape(i,j, coloR1, coloR2, speed, shaPe);
+        grid.push(shape);
+      }
+    }
+}
+
+function draw() {
+  background(51);
+  //frameRate(2);
+
+// draw grid (outer squares)
+  for (var i = 0; i < grid.length; i++) {
+    grid[i].outerGrid();
+
+  }
+
+// draw inner squares
+  for (var i = 0; i < grid.length; i++) {
+    grid[i].innerSquare();
+  }
+}
+
+function Shape(i, j, coloR1, coloR2, speed, shaPe) {
+  this.i = i;
+  this.j = j;
+  this.coloR1 = coloR1;
+  this.coloR2 = coloR2;
+  this.speed = speed;
+  this.shaPe = shaPe;
+  var x = this.i*w + margin_left;
+  var y = this.j*w + margin_top;
+
+  this.outerGrid = function () {
+    push();
+      stroke(coloR1);
+      // noFill();
+      fill(coloR1); 
+      rect(x, y, w, w);
+      translate(x, y);
+    pop();
+   }
+
+    this.innerSquare = function () {
+        // noFill();
+        fill(coloR2);
+        stroke(coloR2);
+        // stroke(150, 0, 255);
+        let ts = millis()/1000.0;
+        let angle = radians(ts*2.0*Math.PI*5.0*-1) - speed;
+        let angle_circle = radians(ts*2.0*Math.PI*5.0) + speed;
+        let rect_w = (w-20);
+        let tx = x+10 + rect_w / 2;
+        let ty = y+10 + rect_w / 2;
+        let tx_circle = rect_w/10 ;
+        let ty_circle = rect_w/10 ;
+        push();
+            if(shaPe == 0){
+            translate(tx, ty);
+            rotate(angle);
+            rect(-rect_w/2, -rect_w/2, rect_w, rect_w);
+            }else if(shaPe == 1){
+            translate(tx, ty);
+            rotate(angle_circle);
+            ellipse(0,0, rect_w, rect_w/1.2);
+            }
+        pop();
+    }
+}
+
+function keyPressed() {
+	if (key == "s"){
+		if(saving){
+			saving = false;
+		}else{
+			saving = true;
+		}
+  	}
+  	if(saving){
+	    saveFrames('bibbbble', 'jpg', 1, 1);
+	    saving = false;
+	  }
+}
+</script>
