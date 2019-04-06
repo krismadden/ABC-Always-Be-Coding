@@ -6,6 +6,20 @@
 <br>
 
 <div>
+  <h2> 2019/04/06 - Party.</h2>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:04/2019:04:06/pattern01.gif?raw=true" width="350" alt="april 06 2019 image of sketch">
+    <br>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:04/2019:04:06/pattern03.gif?raw=true" width="350" alt="april 06 2019 image of sketch">
+</div>
+
+<div>
+  <h2> 2019/03/24 - Vanity.</h2>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:03/2019:03:24/pattern01.gif?raw=true" width="350" alt="march 24 2019 image of sketch">
+    <br>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:03/2019:03:24/pattern02.gif?raw=true" width="350" alt="March 24 2019 image of sketch">
+</div>
+
+<div>
   <h2> 2019/03/16 - Animating Vasarely 1.</h2>
     <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:03/2019:03:16/pattern05.gif?raw=true" width="350" alt="march 16 2019 image of sketch">
     <br>
