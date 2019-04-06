@@ -1,0 +1,39 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+
+<style type="text/css">body{ margin: 0;}</style>
+
+<script>
+
+function setup() {
+  createCanvas(windowWidth, windowHeight, WEBGL);
+}
+
+function draw() {
+  background(216, 228, 187);
+  noStroke();
+  arm(88, 187, 172, 5, 1, 45, 20);
+  arm(114, 177, 131, 5, 1, 90, 40);
+  arm(221, 138, 103, 5, 1, 45, 30);
+  arm(226, 180, 85, 5, 10, 90, 180);
+  arm(226, 180, 85, 5, 10, 45, 200);
+  arm(88, 187, 172, 5, 10, 90, 250);
+  arm(221, 138, 103, 5, 10, 90, 330);
+  fill(67, 120, 224);
+  sphere(50);
+}
+
+function arm(r, g, b, l, w, h, offset){
+
+  rotateX(frameCount * 0.01);
+  rotateY(frameCount * 0.02);
+  rotateZ(offset);
+  for(let i=0; i<windowWidth/2; i+=20){
+    fill(r-i/4,g-i/4,b+i/4);
+    push();
+        translate(i,i)
+       box(l+i/5, w-i/15, h-i/15);
+    pop();
+  }
+}
+
+</script>
