@@ -1,0 +1,125 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+
+<style type="text/css">body{ margin: 0;}</style>
+
+<script>
+
+let y;
+let x;
+
+let dir = 1;
+let t = 0.1;
+
+var ptA = 10;
+var ptB = 70;
+let pct;
+
+let moveY;
+let colorMain;
+let colorShadow = '#000000';
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  background(90,200,32);
+  
+  colorMain = color(0,67,123);
+}
+
+function draw() {
+  background(90,200,32);
+  
+  y = windowWidth/2 - 40;
+  x = windowWidth/2;
+  
+  //t += .3 * dir;
+  t += 0.005 * dir;
+  if (t <= 0.1 || t >= 1) dir *= -1;
+  
+  //pct = pow(t,1.5);
+  pct = -1 * (Math.sqrt(1 - t * t) - 1);
+  moveY = (1-pct) * ptA + pct * ptB;
+  
+  // for(let i = 0; i<100; i += 13){
+  //   drawShadow1(x+i, y+i*3, moveY, colorShadow);
+  // }
+  
+  drawShadow1(x, y, moveY, colorShadow);
+  drawShadow2(x, y, moveY, colorShadow);
+  drawShadow3(x, y, moveY, colorShadow);
+  
+  drawLine1(x, y, moveY, colorMain);
+  drawLine2(x, y, moveY, colorMain);
+  drawLine3(x, y, moveY, colorMain);
+
+}
+
+function drawLine1(x, y, move, coloR){
+  noFill();
+  stroke(0,67,123);
+	strokeWeight(10.0);
+	strokeJoin(ROUND);
+	beginShape();
+	vertex(x - move + 10, y - move);
+	vertex(x + move + 10, y + move);
+	endShape();
+  
+}
+
+function drawShadow1(x, y, move, coloR){
+  noFill();
+  stroke(coloR);
+	strokeWeight(10.0);
+	strokeJoin(ROUND);
+	beginShape();
+	vertex(x - move + 10, y - move + 5);
+	vertex(x + move + 10, y + move + 5);
+	endShape();
+}
+
+
+function drawLine2(x, y, move, coloR){
+  noFill();
+  stroke(coloR);
+	strokeWeight(10.0);
+	strokeJoin(ROUND);
+	beginShape();
+	vertex(x, y - move*2);
+	vertex(x, y + move*2);
+	endShape(); 
+}
+
+function drawShadow2(x, y, move, coloR){
+  noFill();
+  stroke(colorShadow);
+	strokeWeight(10.0);
+	strokeJoin(ROUND);
+	beginShape();
+	vertex(x + 9 - 13, y - move*2 + 10 - 5);
+	vertex(x + 9 - 13, y + move*2 + 10 - 5);
+	endShape();
+}
+
+
+function drawLine3(x, y, move, coloR){
+  noFill();
+  stroke(coloR);
+	strokeWeight(10.0);
+	strokeJoin(ROUND);
+	beginShape();
+	vertex(x + move + 10, y - move - 15); // right point
+	vertex(x - move + 10, y + move); //left
+	endShape(); 
+}
+
+function drawShadow3(x, y, move, coloR){
+  noFill();
+  stroke(coloR);
+	strokeWeight(10.0);
+	strokeJoin(ROUND);
+	beginShape();
+	vertex(x + move + 10, y - move - 15 + 10);
+	vertex(x - move + 10, y + move + 10);
+	endShape();
+}
+
+</script>

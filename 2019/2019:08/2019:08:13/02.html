@@ -1,0 +1,66 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.sound.min.js"></script>
+
+<style type="text/css">body{ margin: 0;}</style>
+
+<script>
+
+let yellow, mint, darkGreen, gold, orange;
+let rounds = [];
+let move1 = 1;
+let grow = -100;
+let growLimit = 800;
+let colors = [];
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  
+  yellow = "#245EAE";
+  mint = "#2E76B9";
+  gold = "#4074BE";
+  darkGreen = "#1376AE";
+  orange = "#35388E";
+  colors = [mint, darkGreen, gold, orange];
+  
+  for(let i = 0; i < 5; i++){
+    rounds[i] = new round(windowWidth/2, windowHeight/2, 50 + i*50, 50 + i*50, -PI, 0, OPEN, colors[i%colors.length], 0.02+(i/500));
+  }
+}
+
+function draw() {
+  background(color(yellow));
+  move1 += 1;
+  grow += 2;
+  if(grow >= growLimit){
+    grow = -100;
+  }
+  for(let i = 0; i < 5; i++){
+    rounds[i].display(move1, grow);
+  }
+}
+
+class round{
+  constructor(cx, cy, cw, ch, cstart, cstop, cmode, ccolor, cmove){
+    this.x = cx;
+    this.y = cy;
+    this.w = cw;
+    this.h = ch;
+    this.start = cstart;
+    this.stop = cstop;
+    this.mode = cmode;
+    this.color = ccolor;
+    this.move = cmove;
+  }
+  
+  display() {
+    strokeWeight(6);
+    noFill();
+    stroke(color(orange));
+    arc(this.x, this.y, this.w + grow*1.5, this.h + grow*1.5, TWO_PI,  TWO_PI, this.mode);
+    stroke(color(this.color));
+    arc(this.x, this.y, this.w + grow, this.h + grow, this.start-(PI*move1*this.move), this.stop + (PI*move1*this.move/2), this.mode);
+  }
+}
+
+</script>

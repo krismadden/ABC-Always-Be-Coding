@@ -1,0 +1,108 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.sound.min.js"></script>   
+
+<style type="text/css">body{ margin: 0;}</style>
+
+<script>
+
+
+let yellow, mint, darkGreen, gold, orange;
+let rounds = [];
+let round_rains = [];
+let move1 = 1;
+let grow = 0;
+let growLimit = 400;
+let colors = [];
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  
+  yellow = "#FADC89";
+  mint = "#BADB9D";
+  gold = "#F3C749";
+  darkGreen = "#2E9779";
+  orange = "#e47742";
+  colors = [mint, darkGreen, gold, orange];
+  
+  for(let z = 0; z < 10; z++){
+    round_rains[z] = [];
+      for(let i = 0; i < 5; i++){
+        round_rains[z][i] = new round_rain(windowWidth/2, windowHeight/2, 50 + i*50, 50 + i*50, -PI, 0, OPEN, colors[i%colors.length], 0.02+(i/500));
+    }
+  }
+  for(let i = 0; i < 5; i++){
+        rounds[i] = new round(windowWidth/2, windowHeight/2, 50 + i*50, 50 + i*50, -PI, 0, OPEN, colors[i%colors.length], 0.02+(i/500));
+    }
+}
+
+function draw() {
+  background(color(yellow));
+  move1 += 1;
+  grow += 2;
+  if(grow >= growLimit){
+    grow = -growLimit;
+  }
+  
+  for(let z = 0; z < 10; z++){
+      for(let i = 0; i < 5; i++){
+        round_rains[z][i].display(move1*0, grow*z);
+      }
+  }
+  
+  for(let i = 0; i < 5; i++){
+    rounds[i].display(move1, grow);
+  }
+  
+}
+
+class round{
+  constructor(cx, cy, cw, ch, cstart, cstop, cmode, ccolor, cmove){
+    this.x = cx;
+    this.y = cy;
+    this.w = cw;
+    this.h = ch;
+    this.start = cstart;
+    this.stop = cstop;
+    this.mode = cmode;
+    this.color = ccolor;
+    this.move = cmove;
+  }
+  
+  display(move1, grow) {
+    strokeWeight(6);
+    noFill();
+    stroke(color(this.color));
+    scale(1.5);
+    arc(this.x*.0+100, this.y*.0+100, this.w, this.h, this.start-(PI*move1*this.move), this.stop + (PI*move1*this.move/2), this.mode);
+  }
+}
+
+class round_rain{
+  constructor(cx, cy, cw, ch, cstart, cstop, cmode, ccolor, cmove){
+    this.random = random(50, 120);
+    this.x = cx;
+    this.y = cy;
+    this.w = cw;
+    this.h = ch;
+    this.start = cstart;
+    this.stop = cstop;
+    this.mode = cmode;
+    this.color = ccolor;
+    this.move = cmove;
+  }
+  
+  display(move1, grow) {
+    strokeWeight(6);
+    noFill();
+    stroke(color(orange));
+    if(grow == 0){
+      // arc(this.x + grow, this.y + grow, this.w + this.random, this.h + this.random, TWO_PI,  TWO_PI, this.mode);
+    }else{
+      // scale(this.random/100);
+      arc(this.x + grow, this.y + grow, this.w, this.h, TWO_PI,  TWO_PI, this.mode);
+    }
+  }
+}
+
+</script>

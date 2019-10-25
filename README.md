@@ -6,8 +6,55 @@
 <br>
 
 <div>
+  <h2> 2019/10/25 - Happy Accident.</h2>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:10/2019:10:25/2019-10-25_1.gif?raw=true" width="350" alt="oct 25 2019 gif of sketch">
+</div>
+
+<div>
+  <h2> 2019/09/14 - Rings Gone Wild.</h2>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:09/2019:09:14/2019-09-14_1.gif?raw=true" width="350" alt="sept 14 2019 gif of sketch 1">
+    <br>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:09/2019:09:14/2019-09-14_2.gif?raw=true" width="350" alt="sept 14 2019 gif of sketch 2">
+</div>
+
+<div>
+  <h2> 2019/08/13 - Ring of Circles.</h2>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:08/2019:08:13/2019-08-13_2.gif?raw=true" width="350" alt="aug 13 2019 gif of sketch 1">
+    <br>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:08/2019:08:13/2019-08-13_2.gif?raw=true" width="350" alt="aug 13 2019 gif of sketch 2">
+</div>
+
+<div>
+  <h2> 2019/04/06 - Party.</h2>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:04/2019:04:06/pattern01.gif?raw=true" width="350" alt="april 06 2019 image of sketch">
+    <br>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:04/2019:04:06/pattern03.gif?raw=true" width="350" alt="april 06 2019 image of sketch">
+</div>
+
+<div>
+  <h2> 2019/03/24 - Vanity.</h2>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:03/2019:03:24/pattern01.gif?raw=true" width="350" alt="march 24 2019 image of sketch">
+    <br>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:03/2019:03:24/pattern02.gif?raw=true" width="350" alt="March 24 2019 image of sketch">
+</div>
+
+<div>
+  <h2> 2019/03/16 - Animating Vasarely 1.</h2>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:03/2019:03:16/pattern05.gif?raw=true" width="350" alt="march 16 2019 image of sketch">
+    <br>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:03/2019:03:16/pattern04.gif?raw=true" width="350" alt="March 16 2019 image of sketch">
+</div>
+
+  <div>
+  <h2> 2019/03/14 - Rotating grid of shapes.</h2>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:03/2019:03:14/pattern01.jpg?raw=true" width="350" alt="march 14 2019 image of sketch">
+    <br>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:03/2019:03:14/pattern02.gif?raw=true" width="350" alt="March 14 2019 image of sketch">
+</div>
+
+<div>
   <h2> 2019/03/05 - Beautiful Error Wheel.</h2>
-    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:03/2019:03:05/pattern01.jpg?raw=true" width="350"  alt="feb 28 2019 image of sketch"> <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:03/2019:03:05/pattern02.jpg?raw=true" width="350" alt="feb 28 2019 image of sketch">
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:03/2019:03:05/pattern01.jpg?raw=true" width="350"  alt="mar 05 2019 image of sketch"> <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:03/2019:03:05/pattern02.jpg?raw=true" width="350" alt="mar 05 2019 image of sketch">
 </div>
 
 <div>
