@@ -1,0 +1,104 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.sound.min.js"></script>
+
+<style type="text/css">body{ margin: 0;}</style>
+
+<script>
+let h = 10;
+
+let w = 70;
+
+let d = 5;
+
+
+
+let speed = 0.01;
+
+
+
+function setup() {
+
+  createCanvas(windowWidth, windowHeight, WEBGL);
+
+}
+
+
+
+function draw() {
+
+    background(40,30,180);
+
+    noStroke();
+
+    ambientLight(255,75,140);
+
+    pointLight(255,255,255, -20,50);
+
+    ladeda(0,0,0);
+
+    //ladeda(0,160,200);
+
+rotate(PI);
+
+    ladeda(0,0,0);
+
+    //pop();
+
+}
+
+
+
+function dededa(hOffset, vOffset, zOffset){
+
+    translate(hOffset,vOffset,zOffset);
+
+    push();
+
+    rotateY(frameCount * 0.01);
+
+    box(50, 20, 5);
+
+    for(let x = 40; x > 0; x -= 3){
+
+        translate(0, -h*0.75, x);
+
+        rotateY(frameCount * -0.01);
+
+        box(50, 20, 5);
+
+    }
+
+    pop();
+
+}
+
+
+
+
+
+function ladeda(hOffset, vOffset, zOffset){
+
+    translate(hOffset, vOffset, zOffset);
+
+    push();
+
+    rotateY(cos(frameCount * speed));
+
+    box(w, h, d);
+
+    for(let x = 0; x < 40; x += 3){
+
+        translate(0, -h*0.95, x);
+
+        rotateY(cos(frameCount * speed));
+
+        box(w,h,d);
+
+    }
+
+    pop();
+
+}
+
+</script>

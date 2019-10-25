@@ -25,6 +25,11 @@
 </div>
 
 <div>
+  <h2> 2019/04/12 - Pink Double Staircase.</h2>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:04/2019:04:12/Screenshot.png?raw=true" width="350" alt="april 12 2019 image of sketch">
+</div>
+
+<div>
   <h2> 2019/04/10 - Orange Staircase.</h2>
     <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:04/2019:04:10/Screenshot%202019-10-25%2016.24.31.png?raw=true" width="350" alt="april 10 2019 image of sketch">
 </div>
