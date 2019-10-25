@@ -1,0 +1,56 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.sound.min.js"></script>
+
+<style type="text/css">body{ margin: 0;}</style>
+
+<script>
+function setup() {
+
+  createCanvas(windowWidth, windowHeight, WEBGL);
+
+}
+
+
+
+function draw() {
+
+    background(40,30,180);
+
+    noStroke();
+
+ambientLight(255,100,4);
+
+//ambientMaterial(120,240,10);
+
+pointLight(255,255,255, -20,50);
+
+//fill(200,150, 34);
+
+//normalMaterial();
+
+    translate(0,-40,0);
+
+    push();
+
+    rotateY(frameCount * 0.01);
+
+    box(50, 20, 5);
+
+    for(let x = 0; x < 40; x += 3){
+
+        translate(0, -10, x);
+
+    push();
+
+    rotateY(frameCount * 0.01);
+
+    box(50, 20, 5);
+
+}
+
+    pop();
+
+}
+
+</script>
