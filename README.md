@@ -25,6 +25,11 @@
 </div>
 
 <div>
+  <h2> 2019/04/10 - Orange Staircase.</h2>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:04/2019:04:10/Screenshot%202019-10-25%2016.24.31.png?raw=true" width="350" alt="april 10 2019 image of sketch">
+</div>
+
+<div>
   <h2> 2019/04/06 - Party.</h2>
     <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:04/2019:04:06/pattern01.gif?raw=true" width="350" alt="april 06 2019 image of sketch">
     <br>
