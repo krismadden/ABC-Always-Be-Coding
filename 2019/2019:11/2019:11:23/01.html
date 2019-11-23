@@ -27,7 +27,7 @@ function setup() {
 
   for (let i = 0; i < (windowWidth + lineSpacing) / lineWS; i++) {
     let x = (lineWidth + lineSpacing) * i;
-    var l = new Line(x, 0, 10, windowHeight, Blue);
+    var l = new Line(x, 0, lineWidth, windowHeight, Blue);
     lines.push(l);
   }
   print(lines.length);
