@@ -7,6 +7,10 @@
 let Blue, Aqua, Green, Orange, Pink, Yellow, Background;
 
 let lines = [];
+let lineWidth = 10;
+let lineSpacing = 30;
+let lineWS = lineWidth + lineSpacing;
+let speed = 0.75;
 
 
 function setup() {
@@ -21,8 +25,8 @@ function setup() {
   colors = [Blue, Green, Orange, Pink];
   Background = 225;
 
-  for (let i = 0; i < (windowWidth + 30) / 40; i++) {
-    let x = (10 + 30) * i;
+  for (let i = 0; i < (windowWidth + lineSpacing) / lineWS; i++) {
+    let x = (lineWidth + lineSpacing) * i;
     var l = new Line(x, 0, 10, windowHeight, Blue);
     lines.push(l);
   }
@@ -50,9 +54,9 @@ function Line(cX, cY, cW, cH, cColor) {
   this.color = color(cColor);
 
   this.move = function() {
-    this.x = this.x + 1;
-    if (this.x > windowWidth + 30) {
-      this.x = -10;
+    this.x = this.x + speed;
+    if (this.x > windowWidth + lineSpacing) {
+      this.x = -lineWidth;
     }
   }
 
