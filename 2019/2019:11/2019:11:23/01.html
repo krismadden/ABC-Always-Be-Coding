@@ -1,0 +1,67 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+
+<style type="text/css">body{ margin: 0;}</style>
+
+<script>
+
+let Blue, Aqua, Green, Orange, Pink, Yellow, Background;
+
+let lines = [];
+
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  Blue = "#2158bd";
+  Aqua = "#19a2b1";
+  Green = "#bcc544";
+  Orange = "#f68c1f";
+  Pink = "#e64864";
+  White = "#ffffff";
+  Black = "000000";
+  colors = [Blue, Green, Orange, Pink];
+  Background = 225;
+  
+  
+  for(let i=0; i<windowWidth / 30 + 1; i++){
+    let x = 10 + 30 * i;
+     var l = new Line(x, 0, 10, windowHeight, Blue);
+    lines.push(l);
+  }
+  print(lines.length);
+}
+
+function mousePressed(){
+  var n = new Line(mouseX, mouseY, 3, windowHeight, Pink);
+  lines.push(n);
+}
+
+function draw() {
+  background(Background);
+  for (let i=0; i<lines.length; i++){
+    lines[i].move();
+    lines[i].display();
+  }
+}
+
+function Line (cX, cY, cW, cH, cColor){
+    this.x = cX;
+    this.y = cY;
+    this.w = cW;
+    this.h = cH;
+    this.color = color(cColor); 
+  
+  this.move = function() {
+    this.x = this.x + 1;
+    if(this.x > windowWidth+10){
+      this.x = -10;
+    }
+  }
+  
+  this.display = function(){
+    noStroke();
+    fill(this.color);
+    rect(this.x, this.y, this.w, this.h);
+  }
+}
+
+</script>

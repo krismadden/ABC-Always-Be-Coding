@@ -2,8 +2,12 @@
   <h1>ABC-Always-Be-Coding</h1>
   <p>here are just some examples of what can be found in this repository.</p>
 </div>
-
 <br>
+
+<div>
+  <h2> 2019/11/23 - Click to Add Lines.</h2>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:11/2019:11:23/2019-11-23_1.gif?raw=true" width="350" alt="oct 25 2019 gif of sketch">
+</div>
 
 <div>
   <h2> 2019/10/25 - Happy Accident.</h2>
