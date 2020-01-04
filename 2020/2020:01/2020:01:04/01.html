@@ -1,0 +1,149 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+
+<style type="text/css">body{ margin: 0;}</style>
+
+<script>
+
+let Blue, Aqua, Green, Orange, Pink, Background;
+let horizontalLines;
+let land1;
+
+let moveLines = 0;
+let moveLinesNegative = 1;
+
+let lines = [];
+let lineWidth = 40;
+let lineSpacing = 10;
+let lineWS = lineWidth + lineSpacing;
+let speed = 0.55;
+
+let img;
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  Blue = "#2158bd";
+  Aqua = "#19a2b1";
+  Green = "#bcc544";
+  Orange = "#f68c1f";
+  Pink = "#e64864";
+  White = "#ffffff";
+  Black = "000000";
+  colors = [Blue, Green, Orange, Pink];
+  Background = Aqua;
+
+  for (let i = 0; i < (windowWidth + lineSpacing) / lineWS; i++) {
+    let x = (lineWidth + lineSpacing) * i;
+    var l = new Line(x, 0, lineWidth, windowHeight, Pink);
+    lines.push(l);
+  }
+  
+  
+  horizontalLines = new hLine(0, 0, windowWidth, 10);
+  land1 = new land(windowWidth/2 - 100, windowHeight/2,
+                   windowWidth/2 + 100, windowHeight/2,
+                   windowWidth, windowHeight - 175, 
+                   windowWidth, windowHeight,
+                   0, windowHeight,
+                   0, windowHeight - 175, 
+                   Blue);
+  
+
+  img = loadImage('gradient4.png');
+}
+
+function draw() {
+  background(color(Background));
+  
+  for (let i = 0; i < lines.length; i++) {
+    lines[i].move();
+    lines[i].display();
+  }
+  
+  // land1.display();
+  horizontalLines.display();
+  moveLines += 0.1 * moveLinesNegative;
+  if(moveLines > 10 || moveLines < -10){
+    moveLinesNegative = -moveLinesNegative;
+  }
+  
+  image(img, 0,0+moveLines*1, windowWidth, windowHeight);
+}
+
+class hLine {
+  constructor(cx, cy, cw, ch) {
+    this.x = cx;
+    this.y = cy;
+    this.w = cw;
+    this.h = ch;
+  }
+
+  display() {
+    
+    fill(color(Background));
+    for(let i = 0; i < this.w*2; i += this.h*2){
+      
+      rect(this.x, this.y+i-(this.w/2)+this.h+moveLines, this.w, this.h);
+    }
+  }
+}
+
+
+//quad(x1, y1, x2, y2, x3, y3, x4, y4)
+class land {
+  constructor(cx1, cy1, cx2, cy2, cx3, cy3, cx4, cy4, cx5, cy5, cx6, cy6, ccolor) {
+    this.x1 = cx1;
+    this.y1 = cy1;
+    this.x2 = cx2;
+    this.y2 = cy2;
+    this.x3 = cx3;
+    this.y3 = cy3;
+    this.x4 = cx4;
+    this.y4 = cy4;
+    this.x5 = cx5;
+    this.y5 = cy5;
+    this.x6 = cx6;
+    this.y6 = cy6;
+    this.color = ccolor;
+    
+    this.h = 10;
+    this.w = 10;
+  }
+
+  display() {
+    fill(color(this.color));
+    noStroke();
+    beginShape();
+    vertex(this.x1, this.y1);
+    vertex(this.x2, this.y2);
+    vertex(this.x3, this.y3);
+    vertex(this.x4, this.y4);
+    vertex(this.x5, this.y5);
+    vertex(this.x6, this.y6);
+    endShape();
+    
+  }
+}
+
+function Line(cX, cY, cW, cH, cColor) {
+  this.x = cX;
+  this.y = cY;
+  this.w = cW;
+  this.h = cH;
+  this.color = color(cColor);
+
+  this.move = function() {
+    this.x = this.x + speed;
+    if (this.x > windowWidth + lineSpacing) {
+      this.x = -lineWidth;
+    }
+  }
+
+  this.display = function() {
+    noStroke();
+    fill(this.color);
+    rectMode(CORNER);
+    rect(this.x, this.y, this.w, this.h);
+  }
+}
+
+</script>

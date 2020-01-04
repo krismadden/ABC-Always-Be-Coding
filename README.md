@@ -3,6 +3,10 @@
   <p>here are just some examples of what can be found in this repository.</p>
 </div>
 <br>
+<div>
+  <h2> 2020/01/04 - Circle Glow.</h2>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2020/2020:01/2020:01:04/2020-01-04_1.gif?raw=true" width="350" alt="jan 04 2020 gif of sketch">
+</div>
 
 <div>
   <h2> 2020/01/03 - Circle Overflow.</h2>
