@@ -1,0 +1,60 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+
+<style type="text/css">body{ margin: 0;}</style>
+
+<script>
+
+let Blue, Aqua, Green, Orange, Pink, Background;
+let horizontalLines;
+let land1;
+
+let moveLines = 0;
+let moveLinesNegative = 1;
+
+let addLines = 0;
+let addLinesNegative = 1;
+
+//based off last example found here genekogan.com/code/p5js-transformations/
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  Blue = "#2158bd"; //33,88,189
+  Aqua = "#19a2b1"; //25, 162, 177
+  Green = "#bcc544"; // 188, 197, 68
+  Orange = "#f68c1f"; // 246, 140, 31
+  Pink = "#e64864"; //230, 72, 100
+  White = "#ffffff";
+  Black = "000000";
+  colors = [Blue, Green, Orange, Pink];
+  Background = Orange;
+
+}
+
+function draw(){
+	background(color(Background));
+	fill(230, 72, 100, 30);
+	stroke(25, 162, 177,160);
+	
+	translate(windowWidth/2, windowHeight/2);
+      moveLines += 0.01 * moveLinesNegative;
+    if(moveLines > 10 || moveLines < -10){
+      moveLinesNegative = -moveLinesNegative;
+    }
+  
+   addLines += 1 * addLinesNegative;
+    if(addLines > 175 || addLines < -75){
+      addLinesNegative = -addLinesNegative;
+    }
+  
+	for (var i=0; i < 75 + addLines; i++) {
+		push();
+		rotate(i / 5.0 + moveLines);
+		scale(i / 8.0);
+		triangle(0, -150, -10, 150, 15, 150);
+		pop();
+	}
+}
+
+
+
+</script>
