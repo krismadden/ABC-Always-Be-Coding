@@ -5,6 +5,11 @@
 <br>
 
 <div>
+  <h2> 2020/01/08 - Triangle Chart.</h2>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2020/2020:01/2020:01:08/2020-01-08_1.png?raw=true" width="350" alt="jan 04 2020 gif of sketch">
+</div>
+
+<div>
   <h2> 2020/01/05 - Whirls.</h2>
     <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2020/2020:01/2020:01:05/2020-01-05_1.gif?raw=true" width="350" alt="jan 05 2020 gif of sketch">
     <br>

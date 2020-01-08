@@ -1,0 +1,74 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+
+<style type="text/css">body{ margin: 0;}</style>
+
+<script>
+
+let Purple, Pink, Teal, Slate, Background;
+
+let grid;
+
+let Triangles = [];
+
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  Purple = "#807DB5";
+  Background = "#F2E4DD";
+  Pink = "#F96997";
+  Teal = "#5F919B";
+  Slate = "#8CA3A4";
+  grid = windowWidth/5;
+  for(let x = 0; x < windowWidth; x+=grid){
+    for(let y = 0; y < windowHeight; y+=grid){
+      let xUpdate = x+grid/2;
+      let yUpdate = y+grid/2;
+      var t = new Triangle(xUpdate, yUpdate, 50, Slate, Purple, 40);
+      Triangles.push(t);
+    }
+  }
+}
+
+function draw() {
+  background(Background);
+  for(let x = 0; x < windowWidth; x+=grid/3.2345){
+    for(let y = 0; y < windowHeight; y+=grid/3.2345){
+      fill(Background);
+      stroke(0);
+      rect(x,y,grid/3.2345,grid/3.2345);
+    }
+  }
+  for (let i = 0; i < Triangles.length; i++) {
+    // Triangles[i].move();
+    Triangles[i].display();
+  }
+}
+
+function Triangle(cCenterX, cCenterY, cDistance, cColor1, cColor2, cShadow) {
+  this.x1 = cCenterX;
+  this.y1 = cCenterY - ((5/12) * sqrt(3) * cDistance);
+  this.x2 = cCenterX + cDistance;
+  this.y2 = cCenterY + cDistance;
+  this.x3 = cCenterX - cDistance;
+  this.y3 = cCenterY + cDistance;
+  this.c1 = color(cColor1);
+  this.c2 = color(cColor2);
+  this.Shadow = cShadow;
+  
+  // this.move = function() {
+  // }
+  
+  this.display = function() {
+    noStroke();
+    fill(this.c1);
+    rectMode(CENTER);
+    triangle(this.x1, this.y1-this.Shadow, this.x2, this.y2-this.Shadow, this.x3, this.y3-this.Shadow);
+    fill(this.c2);
+    triangle(this.x1, this.y1, this.x2, this.y2, this.x3, this.y3);
+    
+  }
+}
+
+
+
+</script>
