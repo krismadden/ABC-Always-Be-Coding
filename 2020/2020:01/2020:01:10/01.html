@@ -1,0 +1,128 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+
+<style type="text/css">body{ margin: 0;}</style>
+
+<script>
+
+let Purple, Pink, Teal, Slate, Background;
+
+let grid;
+
+let Triangles = [];
+let Rectangles = [];
+
+let rotate1 = 0;
+let rotate2 = 0;
+
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  Purple = "#807DB5";
+  Background = "#F2E4DD";
+  Pink = "#F96997";
+  Teal = "#5F919B";
+  Slate = "#8CA3A4";
+  grid = windowWidth/5;
+  for(let x = 0; x < windowWidth; x+=grid){
+    for(let y = 0; y < windowHeight; y+=grid){
+      let xUpdate = x+grid/2;
+      let yUpdate = y+grid/2;
+      var t = new Triangle(xUpdate, yUpdate, 30, Purple, Slate, 20);
+      Triangles.push(t);
+      var r = new Rectangle(xUpdate, yUpdate, 30, Slate, Pink);
+      Rectangles.push(r);
+    }
+  }
+}
+
+function draw() {
+  background(Background);
+  for(let x = 0; x < windowWidth; x+=grid/7.0345){
+    for(let y = 0; y < windowHeight; y+=grid/7.0345){
+      fill(Background);
+      stroke(Teal);
+      rect(x,y,grid/9.0345,grid/9.0345);
+    }
+  }
+  for (let i = 0; i < Triangles.length; i++) {
+    Triangles[i].move();
+    Triangles[i].display();
+  }
+  for (let i = 0; i < Rectangles.length; i++) {
+    Rectangles[i].move();
+    Rectangles[i].display();
+  }
+}
+
+function Triangle(cCenterX, cCenterY, cDistance, cColor1, cColor2, cShadow) {
+  this.randoX = random(-20, 20);
+  this.randoY = random(-21, 21);
+  this.centerX = cCenterX;
+  this.centerY = cCenterY;
+  this.rotat = random(0,360);
+  this.x1 = this.randoX;
+  this.y1 = this.randoY - ((5/12) * sqrt(3) * cDistance);
+  this.x2 = cDistance + this.randoX;
+  this.y2 = cDistance + this.randoY;
+  this.x3 = this.randoX - cDistance;
+  this.y3 = cDistance + this.randoY;
+  this.c1 = color(cColor1);
+  this.c2 = color(cColor2);
+  this.Shadow = cShadow;
+  
+  
+  this.move = function() {
+    rotate1 += 0.5;
+  }
+  
+  this.display = function() {
+    push();
+    translate(this.centerX, this.centerY);
+    rotate(this.rotat + rotate1);
+    noStroke();
+    fill(this.c1);
+    rectMode(CENTER);
+    triangle(this.x1, this.y1-this.Shadow, this.x2, this.y2-this.Shadow, this.x3, this.y3-this.Shadow);
+    fill(this.c2);
+    triangle(this.x1, this.y1, this.x2, this.y2, this.x3, this.y3);
+    pop();
+    
+  }
+}
+
+
+function Rectangle(cCenterX, cCenterY, cDistance, cColor1, cColor2) {
+  this.randoX = random(-60, 60);
+  this.randoY = random(-40, 40);
+  this.centerX = cCenterX;
+  this.centerY = cCenterY;
+  this.rotat = random(0,360);
+  this.x1 = this.randoX;
+  this.y1 = this.randoY - ((5/12) * sqrt(3) * cDistance);
+  this.x2 = cDistance + this.randoX;
+  this.y2 = cDistance + this.randoY;
+  this.x3 = this.randoX - cDistance;
+  this.y3 = cDistance + this.randoY;
+  this.c1 = color(cColor1);
+  this.c2 = color(cColor2);
+  
+  
+  this.move = function() {
+    rotate2 += 50;
+  }
+  
+  this.display = function() {
+    push();
+    translate(this.centerX, this.centerY);
+    rotate(this.rotat + rotate2);
+    noStroke();
+    fill(this.c1);
+    rectMode(CENTER);
+    fill(this.c2);
+    triangle(this.x1-30, this.y1-30, this.x2, this.y2, this.x3, this.y3);
+    pop();
+    
+  }
+}
+
+</script>
