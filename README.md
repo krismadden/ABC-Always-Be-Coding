@@ -5,6 +5,12 @@
 <br>
 
 <div>
+  <h2> 2020/01/12 - Shapes.</h2>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2020/2020:01/2020:01:12/2020-01-12_1.png?raw=true" width="350" alt="jan 12 2020 image of sketch">
+    <br>
+</div>
+
+<div>
   <h2> 2020/01/10 - You keep me spinning around.</h2>
     <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2020/2020:01/2020:01:10/2020-01-10_1.png?raw=true" width="350" alt="jan 10 2020 image of sketch">
     <br>
