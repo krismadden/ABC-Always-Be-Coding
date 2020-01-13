@@ -5,6 +5,11 @@
 <br>
 
 <div>
+  <h2> 2020/01/13 - Unexpected Spin.</h2>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2020/2020:01/2020:01:13/2020-01-13_1.gif?raw=true" width="350" alt="jan 13 2020 gif of sketch">
+</div>
+
+<div>
   <h2> 2020/01/12 - Shapes.</h2>
     <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2020/2020:01/2020:01:12/2020-01-12_1.png?raw=true" width="350" alt="jan 12 2020 image of sketch">
     <br>
