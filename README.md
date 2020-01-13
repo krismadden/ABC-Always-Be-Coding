@@ -7,6 +7,8 @@
 <div>
   <h2> 2020/01/13 - Unexpected Spin.</h2>
     <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2020/2020:01/2020:01:13/2020-01-13_1.gif?raw=true" width="350" alt="jan 13 2020 gif of sketch">
+    <br>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2020/2020:01/2020:01:13/2020-01-13_3.gif?raw=true" width="350" alt="jan 13 2020 gif of sketch">
 </div>
 
 <div>
