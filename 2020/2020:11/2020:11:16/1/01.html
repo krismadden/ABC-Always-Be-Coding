@@ -1,0 +1,102 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+
+<style type="text/css">body{ margin: 0;}</style>
+
+<script>
+
+//define shapes
+let Circles1 = [];
+let Circles2 = [];
+
+// define the colors
+let bkg, c1Top, c1Bottom, c2Top, c2Bottom;
+bkg = "#F2F1F6";
+c1Top = "#E1D3E4";
+c1Bottom = "#9BBABE";
+c2Top = "#483F58";
+c2Bottom = "#CEE3E6";
+
+//define circle width
+let cWidth;
+
+let row = 0;
+let circle1;
+
+let rotate2 = 0;
+
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  cWidth = windowWidth * .8;
+  circle1 = new Circle(windowWidth/2, windowHeight/2, cWidth, cWidth, c1Top, c2Top, 0, 40);
+  // for (let y = 0; y < windowHeight; y += cWidth*2) {
+  //   row = row + 1;
+  //   for (let x = 0; x < windowWidth+cWidth; x += cWidth*2) {
+  //     let xUpdate = x + 0;
+  //     let yUpdate = y + cWidth;
+  //     // console.log(row);
+  //     if(row%2){
+  //       var c1 = new Circle(xUpdate, yUpdate, cWidth, cWidth, c1Top, c1Bottom, 0, 40);
+  //     Circles1.push(c1);
+  //     }else{
+  //       console.log("hi")
+  //       var c2 = new Circle(xUpdate + cWidth, yUpdate, cWidth, cWidth, c2Top, c2Bottom, 0, 40);
+  //     Circles2.push(c2);
+  //     }
+  //   }
+  // }
+}
+
+function draw() {
+  background(bkg);
+  circle1.display();
+  circle1.move();
+  // for (let i = 0; i < Circles1.length; i++) {
+  //   Circles1[i].display();
+  // }
+  // for (let i = 0; i < Circles2.length; i++) {
+  //   Circles2[i].display();
+  // }
+}
+
+
+function Circle(cCenterX, cCenterY, cHeight, cWidth, cColor1, cColor2, cStroke, cRandom) {
+  this.centerX = cCenterX;
+  this.centerY = cCenterY;
+  this.rotat = 0;
+  this.x = 0;
+  this.y = 0;
+  this.h = cHeight;
+  this.w = cWidth;
+  this.c1 = color(cColor1);
+  this.c2 = color(cColor2);
+  this.strok = cStroke;
+  
+  
+  this.move = function() {
+    rotate2 += 50;
+  }
+  
+  this.display = function() {
+    push();
+    translate(this.centerX, this.centerY);
+    rotate(rotate2);
+    stroke(this.c1);
+    strokeWeight(this.strok);
+    rectMode(CENTER);
+    fill(this.c1);
+    arc(this.x, this.y, this.w, this.h, -PI, 0);
+    fill(this.c2);
+    arc(this.x, this.y, this.w, this.h, 0, PI);
+    pop();
+    
+  }
+}
+
+function keyTyped() {
+  if (key === 's') {
+    photo.save('photo', 'png');
+  }
+}
+
+</script>

@@ -18,6 +18,10 @@
     <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2020/2020:12/2020:12:24/2020-12-24.gif?raw=true" width="350" alt="dec 24 2020 gif of sketch">
 </div>
 <div>
+  <h2> 2020/11/16 - Come (color) Lerp with me</h2>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2020/2020:11/2020:11:16/2020-11-17.gif?raw=true" width="350" alt="nov 17 2020 gif of sketch">
+</div>
+<div>
   <h2> 2020/11/16 - Taking this code out for a spin...</h2>
     <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2020/2020:11/2020:11:16/2020-11-16_1.gif?raw=true" width="350" alt="nov 16 2020 gif of sketch">
     <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2020/2020:11/2020:11:16/2020-11-16_2.gif?raw=true" width="350" alt="nov 16 2020 gif of sketch">
@@ -107,7 +111,6 @@
 <div>
   <h2> 2019/04/06 - Party.</h2>
     <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:04/2019:04:06/pattern01.gif?raw=true" width="350" alt="april 06 2019 image of sketch">
-    
     <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2019/2019:04/2019:04:06/pattern03.gif?raw=true" width="350" alt="april 06 2019 image of sketch">
 </div>
 
@@ -188,7 +191,5 @@
 <div width="100%">
   <h2>Template<h2>
   <a href="https://i.imgur.com/QZgpdZT.png"><img src="https://i.imgur.com/QZgpdZT.png" align="center" width="350px"></a>
-  &nbsp;
-  
   <a href="https://i.imgur.com/Mis4bdn.png"><img src="https://i.imgur.com/Mis4bdn.png" align="center" width="350px"></a>
 </div>

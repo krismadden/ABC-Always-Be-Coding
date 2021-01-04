@@ -1,0 +1,92 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+
+<style type="text/css">body{ margin: 0;}</style>
+
+<script>
+
+//define shapes
+let Circles1 = [];
+let Circles2 = [];
+
+// define the colors
+let bkg, c1Top, c1Bottom, c2Top, c2Bottom;
+bkg = "#F2F1F6";
+c1Top = "#E1D3E4";
+c1Bottom = "#9BBABE";
+c2Top = "#483F58";
+c2Bottom = "#CEE3E6";
+
+//define circle width
+let cWidth;
+
+let row = 0;
+let circle1;
+
+let rotate2 = 0;
+
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  cWidth = windowWidth/4;
+  circle1 = new Circle(windowWidth/4, windowHeight/4, cWidth, cWidth, c1Top, c2Top, 0, -0.04, 50, sin(0.4) + 3);
+  circle2 = new Circle(windowWidth/4*3, windowHeight/4, cWidth, cWidth, c2Bottom, c1Top, 0, -0.03, 250, 20);
+  circle3 = new Circle(windowWidth/4, windowHeight/4*3, cWidth, cWidth, c1Top, c1Bottom, 0, 0.35, 20, 1);
+  circle4 = new Circle(windowWidth/4*3, windowHeight/4*3, cWidth, cWidth, c1Bottom, c2Bottom, 0, 0.001, 0, 10);
+}
+
+function draw() {
+  background(bkg);
+  noStroke();
+  fill(c1Bottom);
+  rect(windowWidth/2, 0, windowWidth/2, windowHeight/2);
+  fill(c2Bottom);
+  rect(0, windowHeight/2, windowWidth/2, windowHeight/2);
+  circle1.display();
+  circle2.display();
+  circle3.display();
+  circle4.display();
+  
+  circle1.move();
+  circle2.move();
+  circle3.move();
+  circle4.move();
+}
+
+
+function Circle(cCenterX, cCenterY, cHeight, cWidth, cColor1, cColor2, cStroke, cRandom, cAngle, cMultiply) {
+  this.centerX = cCenterX;
+  this.centerY = cCenterY;
+  this.rotat = cRandom;
+  this.rotating = 0;
+  this.x = 0;
+  this.y = 0;
+  this.h = cHeight;
+  this.w = cWidth;
+  this.c1 = color(cColor1);
+  this.c2 = color(cColor2);
+  this.strok = cStroke;
+  this.angle = cAngle;
+  this.multiply = cMultiply;
+  
+  
+  this.move = function() {
+    this.rotating += this.rotat;
+  }
+  
+  this.display = function() {
+    push();
+    translate(this.centerX, this.centerY);
+    rotate(sin(this.rotating) * this.multiply + this.angle);
+    stroke(this.c1);
+    strokeWeight(this.strok);
+    rectMode(CENTER);
+    fill(this.c1);
+    arc(this.x, this.y, this.w, this.h, -PI, 0);
+    fill(this.c2);
+    arc(this.x, this.y, this.w, this.h, 0, PI);
+    pop();
+    
+  }
+}
+
+</script>

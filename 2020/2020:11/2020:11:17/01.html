@@ -1,0 +1,150 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+
+<style type="text/css">body{ margin: 0;}</style>
+
+<script>
+let amt, startColor, newColor, tempColor;
+
+let bkg, c0, c1, c2, c3, c4, c5;
+c0 = "#F2E0D5"; //rgb(242, 224, 213)
+c1 = "#F6BBAC"; //rgb(246, 187, 172)
+c2 = "#EF6593"; //rgb(153, 157, 169)
+c3 = "#445EA0"; //rgb(68, 94, 160)
+c4 = "#062756"; //rgb(6, 39, 86)
+// c5 = "#4E5C78"; //rgb(78, 92, 120)
+c5 = "#0d172e"; //rgb(13, 23, 46)
+
+//define shapes
+let Circles1 = [];
+let Circles2 = [];
+let cWidth = 40;
+let row = 0;
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+
+  
+  color0 = color(242, 224, 213);
+  color1 = color(246, 187, 172);
+  color2 = color(239, 101, 147);
+  color3 = color(68, 94, 160);
+  color4 = color(6, 39, 86);
+  color5 = color(13, 23, 46);
+  
+  color6 = color(175, 171, 177);
+  color7 = color(250, 242, 237);
+  
+  startColor = color0;
+  newColor = color1;
+  amt = 0;
+
+  background(startColor);
+  
+  
+  
+  for (let y = 0; y < windowHeight; y += cWidth*2) {
+    row = row + 1;
+    for (let x = 0; x < windowWidth+cWidth; x += cWidth*2) {
+      let xUpdate = x + 0;
+      let yUpdate = y + cWidth;
+      // console.log(row);
+      if(row%2){
+        var c1 = new Circle(xUpdate, yUpdate, cWidth, cWidth, color0, color1, 0, 40);
+      Circles1.push(c1);
+      }else{
+        console.log("hi")
+        var c2 = new Circle(xUpdate + cWidth, yUpdate, cWidth, cWidth, color3, color4, 0, 40);
+      Circles2.push(c2);
+      }
+    }
+  }
+  
+
+}
+
+function draw() {
+  background(lerpColor(startColor, newColor, amt));
+  colorMe();
+  for (let i = 0; i < Circles1.length; i++) {
+    Circles1[i].display();
+  }
+  for (let i = 0; i < Circles2.length; i++) {
+    Circles2[i].display();
+  }
+}
+
+function colorMe(){
+  amt += 0.01;
+  if (amt >= 1) {
+    amt = 0.0;
+    if (startColor == color0) {
+      startColor = color1;
+      newColor = color2;
+    } else if (startColor == color1) {
+      startColor = color2;
+      newColor = color3;
+    } else if (startColor == color2){
+      startColor = color3;
+      newColor = color4;
+    }
+    else if (startColor == color3){
+      startColor = color4;
+      newColor = color5;
+    }
+    else if (startColor == color4){
+      startColor = color5;
+      newColor = color6;
+    }
+    else if (startColor == color5){
+      startColor = color6;
+      newColor = color7;
+    }
+    else if (startColor == color6){
+      startColor = color7;
+      newColor = color0;
+    }
+    else if (startColor == color7){
+      startColor = color0;
+      newColor = color1;
+    }
+  }
+}
+
+
+
+
+function Circle(cCenterX, cCenterY, cHeight, cWidth, cColor1, cColor2, cStroke, cRandom) {
+  this.centerX = cCenterX;
+  this.centerY = cCenterY;
+  this.rotat = 0;
+  this.x = 0;
+  this.y = 0;
+  this.h = cHeight;
+  this.w = cWidth;
+  this.c1 = color(cColor1);
+  this.c2 = color(cColor2);
+  this.strok = cStroke;
+  
+  
+  this.move = function() {
+    rotate2 += 50;
+  }
+  
+  this.display = function() {
+    push();
+    translate(this.centerX, this.centerY);
+    rotate(0);
+    stroke(this.c1);
+    strokeWeight(this.strok);
+    rectMode(CENTER);
+    fill(this.c1);
+    arc(this.x, this.y, this.w, this.h, -PI, 0);
+    fill(this.c2);
+    arc(this.x, this.y, this.w, this.h, 0, PI);
+    pop();
+    
+  }
+}
+
+
+</script>
