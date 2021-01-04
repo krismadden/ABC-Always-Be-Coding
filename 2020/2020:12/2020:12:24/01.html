@@ -1,0 +1,124 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.sound.min.js"></script>
+
+<style type="text/css">body{ margin: 0;}</style>
+
+<script>
+// Two ArrayLists to store the vertices for two shapes
+// This example assumes that each shape will have the same
+// number of vertices, i.e. the size of each ArrayList will be the same
+let circle = [];
+let square = [];
+
+// An ArrayList for a third set of vertices, the ones we will be drawing
+// in the window
+let morph = [];
+
+// This boolean variable will control if we are morphing to a circle or square
+let state = false;
+
+let centerX;
+let centerY;
+
+let speed=0.075; //orginally 0.1
+
+let changeMargin = 10; //orginally 0.1
+
+let shadowOffset = 25;
+
+
+var  xpos0 = [47.933174,48.280533,48.481182,48.2185,47.455463,46.04221,43.828896,40.665676,38.63208,37.269043,34.285236,29.353813,22.104023,14.502518,6.9517536,-0.14581236,-4.8933005,-7.724881,-10.216781,-12.318691,-13.188286,-14.197934,-15.44459,-15.878529,-15.6269245,-14.288267,-11.19787,-7.6544056,-5.3529763,-4.1952343,-3.496501,-3.3839483,-3.9847493,-5.4260755,-6.544647,-7.5024033,-9.689781,-12.155485,-14.846278,-19.17656,-25.269848,-31.305237,-36.85684,-40.408447,-42.422142,-44.075317,-45.314743,-45.742104,-46.091324,-46.309776,-45.98753,-45.163773,-43.877693,-42.168503,-38.93776,-33.451027,-28.64766,-25.222885,-21.649366,-17.966301,-14.212879,-10.428305,-8.537735,-5.7364516,-0.5401181,4.294139,8.905657,13.433771,18.017822,25.25304,30.659714,33.639656,39.287483,42.907784,44.925095,46.52114,47.619728,47.933174,47.933174];
+var  ypos0 = [13.56498,18.604404,26.734604,32.31746,37.946823,43.535908,48.99794,54.246147,56.74861,58.27466,61.094986,64.831245,68.7528,71.484184,72.99009,73.235214,72.52911,71.67299,70.481834,68.95121,68.04279,66.778076,63.948944,60.78557,57.316116,51.629105,43.19174,34.0371,26.82589,21.92189,16.965338,11.984402,7.0072527,2.0620599,-0.3866577,-2.2216997,-5.4587936,-8.234998,-10.61553,-13.61619,-16.785858,-19.546791,-22.420734,-24.99629,-27.007168,-29.339787,-32.059364,-33.604843,-35.26258,-38.735817,-42.34957,-46.049652,-49.781845,-53.491955,-58.91685,-65.55416,-69.81421,-72.253586,-74.291466,-75.87366,-76.94594,-77.45412,-77.45284,-77.24856,-75.65939,-72.709915,-68.4628,-62.980743,-56.326416,-44.410988,-34.93357,-29.69878,-18.859234,-10.108923,-3.89311,2.7222717,9.804333,13.56498,13.56498];
+
+
+
+
+var  xpos1 = [14.587017,14.093208,12.517244,10.306652,7.540754,2.5688443,-5.3429527,-14.048214,-20.706236,-25.059063,-29.253315,-33.20967,-36.848816,-40.091427,-41.51776,-43.029488,-45.323135,-46.843826,-47.705803,-48.06021,-47.20271,-46.494797,-45.764954,-43.9546,-41.786842,-39.801647,-37.234875,-33.97574,-32.016144,-30.130432,-25.928963,-21.286057,-16.284628,-11.007587,-5.5378504,0.0416753,5.6480765,11.198441,16.609858,21.799416,26.6842,31.1813,35.207806,38.6808,41.517387,42.63941,43.910175,45.400723,45.706387,44.911964,43.102245,40.362026,36.7761,33.560875,31.213123,29.970585,28.427845,25.231438,21.937439,18.585308,13.529375,6.9498806,-2.0437434,-8.658981,-10.838463,-11.810082,-12.108002,-12.332989,-12.091958,-10.475283,-3.823483,4.894919,10.134445,13.076036,14.413549,15.093075,14.999324,14.587017,14.587017];
+var  ypos1 = [49.582375,50.473843,52.064835,53.41192,54.500023,55.65069,56.092045,55.226044,53.598557,52.071934,50.150616,47.81952,45.06356,41.86767,40.080757,37.96006,33.49813,28.771145,23.77861,15.824223,4.240183,-1.9978256,-8.428414,-20.329826,-28.292976,-33.1287,-37.51995,-41.43032,-43.171494,-44.66105,-47.182068,-49.159355,-50.599564,-51.50933,-51.895317,-51.764156,-51.122505,-49.977013,-48.334316,-46.201073,-43.583927,-40.489532,-36.924526,-32.895565,-28.409286,-25.978096,-22.700176,-15.705229,-8.467033,-1.3007998,5.4782643,11.554951,16.614052,19.501934,20.97279,21.529984,22.104385,22.70941,22.7364,22.268124,20.854198,17.939346,12.79035,8.896713,8.102846,8.147722,8.408707,8.81545,10.038311,12.638792,20.092342,29.488262,35.925278,40.544655,43.438324,46.113716,48.51582,49.582375,49.582375];
+
+
+
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  
+  centerX = windowWidth/2;
+  centerY = windowHeight/2;
+  
+  color0 = color(242, 224, 213);
+  color1 = color(246, 187, 172);
+  color2 = color(239, 101, 147);
+  color3 = color(68, 94, 160);
+  color4 = color(6, 39, 86);
+  color5 = color(13, 23, 46);
+  
+  color6 = color(175, 171, 177);
+  color7 = color(250, 242, 237);
+
+  // Create a circle using vectors pointing from center
+  for (let i = 0; i < xpos1.length; i++) {
+    // Let's fill out morph ArrayList with blank PVectors while we are at it
+    circle.push(createVector(xpos0[i] + centerX, ypos0[i] + centerY));
+    square.push(createVector(xpos1[i] + centerX, ypos1[i] + centerY));
+    morph.push(createVector(0,0));
+  }
+}
+
+function draw() {
+  background(color0);
+
+  // We will keep how far the vertices are from their target
+  let totalDistance = 0;
+
+  // Look at each vertex
+  for (let i = 0; i < circle.length; i++) {
+    let v1;
+    // Are we lerping to the circle or square?
+    if (state) {
+      v1 = circle[i];
+    } else {
+      v1 = square[i];
+    }
+    // Get the vertex we will draw
+    let v2 = morph[i];
+    // Lerp to the target
+    v2.lerp(v1, speed);
+    // Check how far we are from target
+    totalDistance += p5.Vector.dist(v1, v2);
+  }
+
+  // If all the vertices are close, switch shape
+  if (totalDistance < changeMargin) {
+    state = !state;
+  }
+  
+   // Draw relative to center
+  // Draw a polygon that makes up all the vertices
+  translate(-shadowOffset/2, -shadowOffset/2);
+  beginShape();
+  noStroke();
+  fill(color4);
+
+  morph.forEach(v => {
+    vertex(v.x, v.y);
+  });
+  endShape(CLOSE);
+
+ 
+  // Draw a polygon that makes up all the vertices
+  translate(shadowOffset, shadowOffset);
+  beginShape();
+  noStroke();
+  fill(color1);
+
+  morph.forEach(v => {
+    vertex(v.x, v.y);
+  });
+  endShape(CLOSE);
+  
+  
+ 
+}
+
+</script>

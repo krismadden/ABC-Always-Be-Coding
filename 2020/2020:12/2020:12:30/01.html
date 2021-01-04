@@ -1,0 +1,131 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.sound.min.js"></script>
+
+<style type="text/css">body{ margin: 0;}</style>
+
+<script>
+// Two ArrayLists to store the vertices for two shapes
+// This example assumes that each shape will have the same
+// number of vertices, i.e. the size of each ArrayList will be the same
+let circle = [];
+let square = [];
+
+// An ArrayList for a third set of vertices, the ones we will be drawing
+// in the window
+let morph = [];
+
+// This boolean variable will control if we are morphing to a circle or square
+let state = true;
+
+let centerX;
+let centerY;
+
+let speed=0.075; //orginally 0.1
+
+let changeMargin = 10; //orginally 0.1
+
+let shadowOffset = 25;
+
+
+var  xpos0 = [50.000004,20.96128,20.96128,-20.96128,-20.96128,-50.0,-50.0,-20.96128,-20.96128,20.96128,20.96128,50.000004,50.000004,50.000004];
+var  ypos0 = [63.684917,63.684917,12.6835785,12.6835785,63.684917,63.684917,-63.684906,-63.684906,-13.417892,-13.417892,-63.684906,-63.684906,63.684917,63.684917];
+
+
+
+
+var  xpos1 = [0, 15.9, 31.5, 43.5, 43.5, 43.5, 43.5, 33.7, 6.3, 0, 0, 0] ;
+var  ypos1 = [0, 0, 0, 0, 28.5,  65, 190.8, 190.8, 190.8, 190.8, 171.4, 145.4];
+
+
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  
+  centerX = windowWidth/2;
+  centerY = windowHeight/2;
+  
+  color0 = color(242, 224, 213); //light light pink
+  color1 = color(246, 187, 172); // samon pink
+  color2 = color(239, 101, 147); // hot pink
+  color3 = color(68, 94, 160); //blue-purple
+  color4 = color(6, 39, 86); // dark blue -- good bkg
+  color5 = color(13, 23, 46); // dark navy
+  
+  color6 = color(175, 171, 177); // gray
+  color7 = color(250, 242, 237); // light beige
+
+  // Create a circle using vectors pointing from center
+  for (let i = 0; i < xpos1.length; i++) {
+    // Let's fill out morph ArrayList with blank PVectors while we are at it
+    circle.push(createVector(xpos0[i] + centerX, ypos0[i] + centerY));
+    square.push(createVector(xpos1[i] + centerX, ypos1[i] + centerY));
+    morph.push(createVector(0,0));
+  }
+}
+
+function draw() {
+  background(color1);
+
+  // We will keep how far the vertices are from their target
+  let totalDistance = 0;
+
+  // Look at each vertex
+  for (let i = 0; i < circle.length; i++) {
+    let v1;
+    // Are we lerping to the circle or square?
+    if (state) {
+      v1 = circle[i];
+    } else {
+      v1 = square[i];
+    }
+    // Get the vertex we will draw
+    let v2 = morph[i];
+    // Lerp to the target
+    v2.lerp(v1, speed);
+    // Check how far we are from target
+    totalDistance += p5.Vector.dist(v1, v2);
+  }
+
+  // If all the vertices are close, switch shape
+  if (totalDistance < changeMargin) {
+    state = !state;
+  }
+  
+  drawShadow();
+  drawShape();
+ 
+
+  
+  
+ 
+}
+
+function drawShape(){
+   // Draw relative to center
+  // Draw a polygon that makes up all the vertices
+  translate(-shadowOffset/2, -shadowOffset/2);
+  beginShape();
+  noStroke();
+  fill(color7);
+
+  morph.forEach(v => {
+    vertex(v.x, v.y);
+  });
+  endShape(CLOSE);
+}
+
+function drawShadow(){
+  // Draw a polygon that makes up all the vertices
+  translate(shadowOffset, shadowOffset);
+  beginShape();
+  noStroke();
+  fill(color5);
+
+  morph.forEach(v => {
+    vertex(v.x, v.y);
+  });
+  endShape(CLOSE);
+}
+
+</script>
