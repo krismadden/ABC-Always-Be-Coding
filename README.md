@@ -5,6 +5,38 @@
 <br>
 
 <div>
+  <h2> 2021/01/04 - Farewell. Fare well.</h2>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2021/2021:01/2021:01:04/2021-01-04_1.gif?raw=true" width="350" alt="jan 04 2021 gif of sketch">
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2021/2021:01/2021:01:04/2021-01-04_2.gif?raw=true" width="350" alt="jan 04 2021 gif of sketch">
+</div>
+<div>
+  <h2> 2020/12/30 - Unexpected Spin.</h2>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2020/2020:12/2020:12:30/2020-12-30.gif?raw=true" width="350" alt="dec 30 2020 gif of sketch">
+</div>
+<div>
+  <h2> 2020/12/24 - Unexpected Spin.</h2>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2020/2020:12/2020:12:24/2020-12-24.gif?raw=true" width="350" alt="dec 24 2020 gif of sketch">
+</div>
+<div>
+  <h2> 2020/11/16 - Unexpected Spin.</h2>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2020/2020:11/2020:11:16/2020-11-16_1.gif?raw=true" width="350" alt="nov 16 2020 gif of sketch">
+</div>
+<div>
+  <h2> 2020/11/16 - Unexpected Spin.</h2>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2020/2020:11/2020:11:16/2020-11-16_2.gif?raw=true" width="350" alt="nov 16 2020 gif of sketch">
+</div>
+
+<div>
+  <h2> 2020/11/06 - Unexpected Spin.</h2>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2020/2020:11/2020:11:06/2020-11-06.gif?raw=true" width="350" alt="nov 06 2020 gif of sketch">
+</div>
+
+<div>
+  <h2> 2020/11/05 - Unexpected Spin.</h2>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2020/2020:11/2020:11:05/2020-11-05.gif?raw=true" width="350" alt="nov 05 2020 gif of sketch">
+</div>
+
+<div>
   <h2> 2020/01/13 - Unexpected Spin.</h2>
     <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2020/2020:01/2020:01:13/2020-01-13_1.gif?raw=true" width="350" alt="jan 13 2020 gif of sketch">
     <br>
