@@ -18,8 +18,8 @@
     <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2020/2020:12/2020:12:24/2020-12-24.gif?raw=true" width="350" alt="dec 24 2020 gif of sketch">
 </div>
 <div>
-  <h2> 2020/11/16 - Come (color) Lerp with me</h2>
-    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2020/2020:11/2020:11:16/2020-11-17.gif?raw=true" width="350" alt="nov 17 2020 gif of sketch">
+  <h2> 2020/11/17 - Come (color) Lerp with me</h2>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2020/2020:11/2020:11:17/2020-11-17.gif?raw=true" width="350" alt="nov 17 2020 gif of sketch">
 </div>
 <div>
   <h2> 2020/11/16 - Taking this code out for a spin...</h2>
