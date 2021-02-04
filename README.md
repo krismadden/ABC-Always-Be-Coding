@@ -5,6 +5,10 @@
 <br>
 
 <div>
+  <h2> 2021/02/03 - Kris Says Hi.</h2>
+    <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2021/2021:02/2021:02:03/02.gif?raw=true" width="350" alt="feb 03 2021 gif of sketch">
+</div>
+<div>
   <h2> 2021/01/04 - Farewell. Fare well.</h2>
     <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2021/2021:01/2021:01:04/2021-01-04_1.gif?raw=true" width="350" alt="jan 04 2021 gif of sketch">
     <img src="https://github.com/krismadden/ABC-Always-Be-Coding/blob/master/2021/2021:01/2021:01:04/2021-01-04_2.gif?raw=true" width="350" alt="jan 04 2021 gif of sketch">
